@@ -1,0 +1,6 @@
+1.pip install tf2onnx
+2.python -m tf2onnx.convert --input model_Ske_192_256_1840005.pb --inputs truediv:0 --outputs Openpose/concat_stage7:0 --output model.onnx --verbose
+
+注意事项：出现unsupported onnx opset version：11错误，解决方法：在命令最后加上 --opset 11
+         模型有多个输入多个输入的情况，之间用，隔开
+         模型输入输出名字需要用 node_name:port_id的格式，要不然后面会转换出错。  （其中node_name是名字，port_id是ID，没有的话设为0即可）
